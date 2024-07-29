@@ -2,8 +2,10 @@
 import styles from './CountryList.module.scss';
 import CountryItem from './CountryItem';
 import Message from './Message';
+import { useCities } from '../contexts/CitiesContext';
 
-function CountryList({ cities }) {
+function CountryList() {
+  const { cities } = useCities();
   if (!cities.length)
     return (
       <Message message='Add your first city by clicking on a city on the map' />
