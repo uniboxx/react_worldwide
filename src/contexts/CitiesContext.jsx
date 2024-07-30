@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
+import { useReducer } from 'react';
 import { useContext } from 'react';
 import { createContext } from 'react';
 
@@ -43,17 +44,76 @@ const citiesArray = [
   },
 ];
 
+const initialState = {
+  cities: citiesArray,
+  currentCity: {},
+  error: '',
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'city/loaded':
+      return { ...state, currentCity: action.payload };
+    case 'city/created':
+      return {
+        ...state,
+        cities: [...state.cities, action.payload],
+        currentCity: action.payload,
+      };
+    case 'city/deleted':
+      return {
+        ...state,
+        cities: state.cities.filter(city => city.id !== action.payload),
+        currentCity: {},
+      };
+    case 'rejected':
+      return { ...state, error: action.payload };
+    default:
+      throw new Error('Unknown action type');
+  }
+}
+
 function CitiesProvider({ children }) {
-  const [cities, setCities] = useState(citiesArray);
-  const [currentCity, setCurrentCity] = useState({});
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { cities, currentCity, error } = state;
 
   function getCity(id) {
+    if (+id === currentCity.id) return;
     const city = cities.find(city => city.id === +id);
-    setCurrentCity(city);
+    try {
+      dispatch({ type: 'city/loaded', payload: city });
+    } catch {
+      dispatch({
+        type: 'rejected',
+        payload: 'There was an error loading the city',
+      });
+    }
+  }
+  function createCity(newCity) {
+    try {
+      dispatch({ type: 'city/created', payload: newCity });
+    } catch {
+      dispatch({
+        type: 'rejected',
+        payload: 'There was an error creating the city',
+      });
+    }
+  }
+
+  function deleteCity(id) {
+    try {
+      dispatch({ type: 'city/deleted', payload: id });
+    } catch {
+      dispatch({
+        type: 'rejected',
+        payload: 'There was an error deleteting the city',
+      });
+    }
   }
 
   return (
-    <CitiesContext.Provider value={{ cities, currentCity, getCity }}>
+    <CitiesContext.Provider
+      value={{ cities, currentCity, error, getCity, createCity, deleteCity }}>
       {children}
     </CitiesContext.Provider>
   );
