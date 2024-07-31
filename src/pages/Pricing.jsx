@@ -1,5 +1,6 @@
 // Uses the same styles as Product
 import PageNav from '../components/PageNav';
+import IMAGES from '../images/Images';
 import styles from './Product.module.css';
 
 export default function Product() {
@@ -20,7 +21,7 @@ export default function Product() {
           </p>
         </div>
         <img
-          src='img/img-2.jpg'
+          src={IMAGES.image2}
           alt='overview of a large city with skyscrapers'
         />
       </section>
