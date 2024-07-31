@@ -16,7 +16,7 @@ export default function Login() {
 
   useEffect(
     function () {
-      if (isAuthenticated) navigate('/app', { replace: true });
+      if (isAuthenticated) navigate('/react_worldwise/app', { replace: true });
     },
     [isAuthenticated, navigate]
   );

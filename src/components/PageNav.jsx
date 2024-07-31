@@ -10,18 +10,21 @@ function PageNav() {
       <Logo />
       <ul>
         <li>
-          <NavLink to='/pricing'>Pricing</NavLink>
+          <NavLink to='/react_worldwise/pricing'>Pricing</NavLink>
         </li>
         <li>
-          <NavLink to='/product'>Product</NavLink>
+          <NavLink to='/react_worldwise/product'>Product</NavLink>
         </li>
         <li>
           {!isAuthenticated ? (
-            <NavLink to='/login' className={styles.ctaLink}>
+            <NavLink to='/react_worldwise/login' className={styles.ctaLink}>
               Login
             </NavLink>
           ) : (
-            <NavLink to='/' className={styles.ctaLink} onClick={logout}>
+            <NavLink
+              to='/react_worldwise'
+              className={styles.ctaLink}
+              onClick={logout}>
               Logout
             </NavLink>
           )}
