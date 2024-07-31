@@ -21,10 +21,7 @@ function PageNav() {
               Login
             </NavLink>
           ) : (
-            <NavLink
-              to='/react_worldwise'
-              className={styles.ctaLink}
-              onClick={logout}>
+            <NavLink to='/' className={styles.ctaLink} onClick={logout}>
               Logout
             </NavLink>
           )}

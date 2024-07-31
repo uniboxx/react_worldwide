@@ -4,8 +4,8 @@ import IMAGES from '../images/Images';
 
 function Logo() {
   return (
-    <Link to='/react_worldwise'>
-      <img src={IMAGES.logo} alt='WorldWise logo' className={styles.logo} />
+    <Link to='/'>
+      <img src={IMAGES} alt='WorldWise logo' className={styles.logo} />
     </Link>
   );
 }
