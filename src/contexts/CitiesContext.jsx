@@ -118,7 +118,6 @@ function CitiesProvider({ children }) {
   useEffect(
     function () {
       localStorage.setItem('cities', JSON.stringify(cities));
-      console.log(cities);
     },
     [cities]
   );
