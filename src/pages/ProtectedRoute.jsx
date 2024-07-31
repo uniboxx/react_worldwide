@@ -9,6 +9,7 @@ function ProtectedRoute({ children }) {
 
   useEffect(
     function () {
+      console.log(isAuthenticated);
       if (!isAuthenticated) {
         console.log('not authenticated');
         navigate('/react_worldwise/');
