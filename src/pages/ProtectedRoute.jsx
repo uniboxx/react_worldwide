@@ -5,13 +5,11 @@ import { useEffect } from 'react';
 /* eslint-disable react/prop-types */
 function ProtectedRoute({ children }) {
   const { isAuthenticated } = useAuth();
-  console.log(isAuthenticated);
   const navigate = useNavigate();
 
   useEffect(
     function () {
       if (!isAuthenticated) {
-        console.log('not authenticated');
         navigate('/react_worldwise/');
       }
     },

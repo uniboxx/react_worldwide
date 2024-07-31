@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
+import { useEffect } from 'react';
 import { useReducer } from 'react';
 import { useContext } from 'react';
 import { createContext } from 'react';
@@ -44,8 +45,11 @@ const citiesArray = [
   },
 ];
 
+if (!localStorage.getItem('cities'))
+  localStorage.setItem('cities', JSON.stringify(citiesArray));
+
 const initialState = {
-  cities: citiesArray,
+  cities: JSON.parse(localStorage.getItem('cities')),
   currentCity: {},
   error: '',
 };
@@ -110,6 +114,14 @@ function CitiesProvider({ children }) {
       });
     }
   }
+
+  useEffect(
+    function () {
+      localStorage.setItem('cities', JSON.stringify(cities));
+      console.log(cities);
+    },
+    [cities]
+  );
 
   return (
     <CitiesContext.Provider
