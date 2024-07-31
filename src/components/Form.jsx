@@ -85,7 +85,7 @@ function Form() {
       id: Math.trunc(Math.random() * Date.now() * 10000),
     };
     createCity(newCity);
-    navigate('/react_worldwise/app');
+    navigate('/app');
   }
 
   if (isLoadingGeocoding) return <Spinner />;

@@ -19,11 +19,11 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<Homepage />} />
-            <Route path='/react_worldwise/pricing/' element={<Pricing />} />
-            <Route path='/react_worldwise/product/' element={<Product />} />
-            <Route path='/react_worldwise/login/' element={<Login />} />
+            <Route path='/pricing/' element={<Pricing />} />
+            <Route path='/product/' element={<Product />} />
+            <Route path='/login/' element={<Login />} />
 
-            <Route path='/react_worldwise/app/' element={<AppLayout />}>
+            <Route path='/app/' element={<AppLayout />}>
               <Route index element={<Navigate replace to='cities' />} />
               <Route path='cities' element={<CityList />} />
               <Route path='cities/:id' element={<City />} />
@@ -31,7 +31,7 @@ function App() {
               <Route path='form' element={<Form />} />
             </Route>
 
-            <Route path='/react_worldwise/*' element={<PageNotFound />} />
+            <Route path='/*' element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
       </CitiesProvider>
