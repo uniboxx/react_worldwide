@@ -20,10 +20,7 @@ export default function Product() {
             voluptatem iste.
           </p>
         </div>
-        <img
-          src={IMAGES.image1}
-          alt='overview of a large city with skyscrapers'
-        />
+        <img src='/img-1.jpg' alt='overview of a large city with skyscrapers' />
       </section>
     </main>
   );
