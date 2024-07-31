@@ -9,7 +9,7 @@ function ProtectedRoute({ children }) {
 
   useEffect(
     function () {
-      if (!isAuthenticated) navigate('/react_worldwise');
+      if (!isAuthenticated) navigate('react_worldwise');
     },
     [isAuthenticated, navigate]
   );
