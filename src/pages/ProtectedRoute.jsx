@@ -4,8 +4,8 @@ import { useEffect } from 'react';
 
 /* eslint-disable react/prop-types */
 function ProtectedRoute({ children }) {
-  console.log(isAuthenticated);
   const { isAuthenticated } = useAuth();
+  console.log(isAuthenticated);
   const navigate = useNavigate();
 
   useEffect(
