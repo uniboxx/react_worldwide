@@ -16,7 +16,7 @@ function ProtectedRoute({ children }) {
     [isAuthenticated, navigate]
   );
 
-  return isAuthenticated ? children : null;
+  return isAuthenticated && children;
 }
 
 export default ProtectedRoute;
