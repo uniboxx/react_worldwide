@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   "author": "unibox",
-  "homepage": "/react_worldwise",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

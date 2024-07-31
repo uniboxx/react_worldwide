@@ -18,7 +18,7 @@ function App() {
       <CitiesProvider>
         <BrowserRouter>
           <Routes>
-            <Route path='/react_worldwise/' element={<Homepage />} />
+            <Route path='/' element={<Homepage />} />
             <Route path='/react_worldwise/pricing/' element={<Pricing />} />
             <Route path='/react_worldwise/product/' element={<Product />} />
             <Route path='/react_worldwise/login/' element={<Login />} />
