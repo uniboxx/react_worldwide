@@ -11,7 +11,6 @@ import City from './components/City';
 import Form from './components/Form';
 import { CitiesProvider } from './contexts/CitiesContext';
 import { AuthProvider } from './contexts/FakeAuthContext';
-import ProtectedRoute from './pages/ProtectedRoute';
 
 function App() {
   return (
@@ -24,13 +23,7 @@ function App() {
             <Route path='/react_worldwise/product/' element={<Product />} />
             <Route path='/react_worldwise/login/' element={<Login />} />
 
-            <Route
-              path='/react_worldwise/app/'
-              element={
-                <ProtectedRoute>
-                  <AppLayout />
-                </ProtectedRoute>
-              }>
+            <Route path='/react_worldwise/app/' element={<AppLayout />}>
               <Route index element={<Navigate replace to='cities' />} />
               <Route path='cities' element={<CityList />} />
               <Route path='cities/:id' element={<City />} />
